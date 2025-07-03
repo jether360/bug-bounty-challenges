@@ -10,4 +10,5 @@ Welcome to the **Bug Bounty Challenge**! This project is designed to test your d
 2. **Replicate the same bug** in as many other programming languages as you'd like (e.g., Python, Java, C#, Go, Ruby, Rust, etc.).
 3. **Create a separate file** for each language containing the buggy version.
 4. Fix all replicated versions.
-5. **Push everything to a separate branch** named:  
+5. **Push everything to a separate branch** named:
+6. The branch name should be formatted like this: balabagno-bug-bounty-challenge (replace balabagno with your family name).
