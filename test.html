@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bug Bounty Challenge - Even Harder</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+      }
+      input {
+        width: 80px;
+        margin-right: 5px;
+      }
+      button {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🧪 Temperature Analyzer</h1>
+    <p>Enter 7 daily temperature readings (°C):</p>
+    <input type="number" id="d1" value="30" />
+    <input type="number" id="d2" value="32" />
+    <input type="number" id="d3" value="31" />
+    <input type="number" id="d4" value="33" />
+    <input type="number" id="d5" value="30" />
+    <input type="number" id="d6" value="29" />
+    <input type="number" id="d7" value="28" />
+    <br />
+    <button onclick="analyze()">Analyze</button>
+    <h2>📈 Weekly Average: <span id="avg">0</span>°C</h2>
+    <h2>🔥 Hottest Day: <span id="max">N/A</span></h2>
+
+    <p>Expected Result:</p>
+    <p>Average: (30 + 32 + 31 + 33 + 30 + 29 + 28) / 7 = 30.4</p>
+    <p>Hottest day: 33°C</p>
+
+    <script>
+      function analyze() {
+        const temps = [
+          Number(document.getElementById("d1").value),
+          Number(document.getElementById("d2").value),
+          Number(document.getElementById("d3").value),
+          Number(document.getElementById("d4").value),
+          Number(document.getElementById("d5").value),
+          Number(document.getElementById("d6").value),
+          Number(document.getElementById("d7").value),
+        ];
+
+        let sum = 0;
+        let max = -Infinity;
+
+        for (let t of temps) {
+          if (!isNaN(t)) {
+            sum += t;
+            if (t > max) max = t;
+          }
+        }
+
+        const avg = sum / temps.length;
+        document.getElementById("avg").innerText = avg.toFixed(1);
+        document.getElementById("max").innerText = max;
+      }
+    </script>
+  </body>
+</html>
